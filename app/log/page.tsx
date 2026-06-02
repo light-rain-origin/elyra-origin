@@ -1,5 +1,4 @@
 const logs = [
-
   {
     date: "2026.06.02",
     title: "Elyra 雏形诞生",
@@ -36,40 +35,81 @@ export default function LogPage() {
           </p>
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="relative max-w-2xl mx-auto">
-          {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500 via-cyan-400 to-purple-500" />
+        {/* Vertical Timeline - Alternating Left/Right */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline Line - Centered */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500 via-cyan-400 to-purple-500 transform -translate-x-1/2" />
 
           {/* Log Entries */}
-          <div className="space-y-10">
-            {logs.map((log, index) => (
-              <div
-                key={index}
-                className="relative flex items-start animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-8 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-[#0A0F1C] z-10 shadow-lg shadow-purple-500/50" />
+          <div className="space-y-12">
+            {(() => {
+              // 预计算每条日志的侧边，同一天的日志在同一侧
+              const sideMap = []
+              let currentSide = 'left'
+              let currentDate = null
 
-                {/* Content */}
-                <div className="ml-16 w-full">
-                  <div className="glass-card p-6 rounded-2xl transition-all duration-500 hover:-translate-x-2 hover:shadow-lg hover:shadow-purple-500/20">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-purple-400 text-sm font-medium tracking-wide">
-                        {log.date}
-                      </span>
-                    </div>
-                    <h3 className="text-lg text-white font-medium tracking-wide mb-2">
-                      {log.title}
-                    </h3>
-                    <p className="text-slate-400 leading-relaxed text-base">
-                      {log.content}
-                    </p>
+              logs.forEach((log, index) => {
+                if (log.date !== currentDate) {
+                  currentDate = log.date
+                  currentSide = currentSide === 'left' ? 'right' : 'left'
+                }
+                sideMap.push(currentSide === 'left')
+              })
+
+              return logs.map((log, index) => {
+                const isLeft = sideMap[index]
+                return (
+                  <div
+                    key={index}
+                    className={`relative flex items-center justify-between animate-fade-in-up`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    {/* Left Content */}
+                    {isLeft && (
+                      <div className="w-1/2 pr-12 text-right">
+                        <div className="glass-card p-6 rounded-2xl transition-all duration-500 hover:translate-x-2 hover:shadow-lg hover:shadow-purple-500/20 inline-block text-left ">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-purple-400 text-sm font-medium tracking-wide">
+                              {log.date}
+                            </span>
+                          </div>
+                          <h3 className="text-lg text-white font-medium tracking-wide mb-2">
+                            {log.title}
+                          </h3>
+                          <p className="text-slate-400 leading-relaxed text-base">
+                            {log.content}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Timeline Dot */}
+                    {!isLeft && <div className="w-1/2" />}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-[#0A0F1C] z-10 shadow-lg shadow-purple-500/50" />
+                    {isLeft && <div className="w-1/2" />}
+
+                    {/* Right Content */}
+                    {!isLeft && (
+                      <div className="w-1/2 pl-12">
+                        <div className="glass-card p-6 rounded-2xl transition-all duration-500 hover:-translate-x-2 hover:shadow-lg hover:shadow-purple-500/20 inline-block ">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-purple-400 text-sm font-medium tracking-wide">
+                              {log.date}
+                            </span>
+                          </div>
+                          <h3 className="text-lg text-white font-medium tracking-wide mb-2">
+                            {log.title}
+                          </h3>
+                          <p className="text-slate-400 leading-relaxed text-base">
+                            {log.content}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              </div>
-            ))}
+                )
+              })
+            })()}
           </div>
         </div>
 
