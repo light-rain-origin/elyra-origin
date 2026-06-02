@@ -3,21 +3,25 @@ const logs = [
     date: "2026.06.02",
     title: "Elyra 雏形诞生",
     content: "艾丽娅记录：一个尚未完整的世界，第一次拥有了基本的形状。",
+    tag: "milestone",
   },
   {
     date: "2026.06.02",
     title: "研究记录系统启动",
     content: "正式启动研究记录系统，开始AI研究与虚拟角色实验。",
+    tag: "event",
   },
   {
     date: "2026.06.01",
     title: "艾丽娅概念建立",
     content: "魔法猫娘角色概念正式确立，开启虚拟角色实验。",
+    tag: "milestone",
   },
   {
     date: "2026.05.31",
     title: "Elyra 域名注册完成",
     content: "Elyra 的名字第一次被正式启用，数字入口建立完成。",
+    tag: "event",
   },
 ]
 
@@ -106,6 +110,15 @@ export default function LogPage() {
                             <span className="text-purple-400 text-sm font-medium tracking-wide">
                               {log.date}
                             </span>
+                            {log.tag && (
+                              <span className={`text-xs px-2 py-0.5 rounded-full ${
+                                log.tag === 'milestone'
+                                  ? 'bg-purple-500/20 text-purple-300'
+                                  : 'bg-cyan-500/20 text-cyan-300'
+                              }`}>
+                                {log.tag === 'milestone' ? '里程碑' : '事件'}
+                              </span>
+                            )}
                           </div>
                           <h3 className="text-lg text-white font-medium tracking-wide mb-2">
                             {log.title}
@@ -130,6 +143,15 @@ export default function LogPage() {
                             <span className="text-purple-400 text-sm font-medium tracking-wide">
                               {log.date}
                             </span>
+                            {log.tag && (
+                              <span className={`text-xs px-2 py-0.5 rounded-full ${
+                                log.tag === 'milestone'
+                                  ? 'bg-purple-500/20 text-purple-300'
+                                  : 'bg-cyan-500/20 text-cyan-300'
+                              }`}>
+                                {log.tag === 'milestone' ? '里程碑' : '事件'}
+                              </span>
+                            )}
                           </div>
                           <h3 className="text-lg text-white font-medium tracking-wide mb-2">
                             {log.title}
