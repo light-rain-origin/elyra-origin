@@ -71,8 +71,8 @@ export default function LogPage() {
 
         {/* Vertical Timeline - Alternating Left/Right */}
         <div className="relative max-w-4xl mx-auto">
-          {/* Timeline Line - Centered */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500 via-cyan-400 to-purple-500 transform -translate-x-1/2" />
+          {/* Timeline Line - Centered with soft glow */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500 via-cyan-400 to-purple-500 transform -translate-x-1/2 shadow-[0_0_8px_rgba(168,85,247,0.3)]" />
 
           {/* Log Entries */}
           <div className="space-y-12">
