@@ -1,30 +1,24 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-
 const logs = [
+
   {
-    date: "2026.05.31",
-    title: "Elyra 域名注册完成",
-    content: "完成域名注册，为研究院建立数字身份基础。",
-  },
-  {
-    date: "2026.06.01",
-    title: "研究院系统启动",
-    content: "正式启动研究院系统，开始AI研究与虚拟角色实验。",
+    date: "2026.06.02",
+    title: "Elyra 雏形诞生",
+    content: "艾丽娅记录：一个尚未完整的世界，第一次拥有了基本的形状。",
   },
   {
     date: "2026.06.02",
+    title: "研究记录系统启动",
+    content: "正式启动研究记录系统，开始AI研究与虚拟角色实验。",
+  },
+  {
+    date: "2026.06.01",
     title: "艾丽娅概念建立",
     content: "魔法猫娘角色概念正式确立，开启虚拟角色实验。",
   },
   {
-    date: "2026.06.03",
-    title: "首个AI实验完成",
-    content: "完成首个AI实验，验证智能代理系统可行性。",
-  },
-  {
-    date: "2026.06.04",
-    title: "数字世界构建",
-    content: "开始构建虚拟数字世界，探索角色与环境的融合。",
+    date: "2026.05.31",
+    title: "Elyra 域名注册完成",
+    content: "艾丽娅记录：Elyra 的名字第一次被世界正式识别。",
   },
 ]
 
@@ -35,7 +29,7 @@ export default function LogPage() {
         {/* Header */}
         <div className="text-center space-y-6 mb-16 animate-fade-in-up">
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-wide">
-            研究日志
+            成长日志
           </h1>
           <p className="text-slate-400 text-lg tracking-wide">
             记录研究历程与重要时刻
