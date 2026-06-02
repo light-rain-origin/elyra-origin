@@ -9,15 +9,44 @@ const logs = [
   },
   {
     date: "2026.06.02",
+    title: "研究记录系统启动",
+    content: "正式启动研究记录系统，开始AI研究与虚拟角色实验。",
+    tag: "event",
+  },
+  {
+    date: "2026.06.02",
     title: "Elyra 雏形诞生",
     content: "艾丽娅记录：一个尚未完整的世界，第一次拥有了基本的形状。",
     tag: "milestone",
+  },
+  {
+    date: "2026.06.01",
+    title: "艾丽娅概念建立",
+    content: "魔法猫娘角色概念正式确立，开启虚拟角色实验。",
+    tag: "milestone",
+  },
+  {
+    date: "2026.05.31",
+    title: "Elyra 域名注册完成",
+    content: "Elyra 的名字第一次被正式启用，数字入口建立完成。",
+    tag: "event",
+  },{
+    date: "2026.06.02",
+    title: "提交 v1 版本",
+    content: "完成基础框架搭建，成长日志系统上线，艾丽娅研究记录进入持续迭代阶段。",
+    tag: "event",
   },
   {
     date: "2026.06.02",
     title: "研究记录系统启动",
     content: "正式启动研究记录系统，开始AI研究与虚拟角色实验。",
     tag: "event",
+  },
+  {
+    date: "2026.06.02",
+    title: "Elyra 雏形诞生",
+    content: "艾丽娅记录：一个尚未完整的世界，第一次拥有了基本的形状。",
+    tag: "milestone",
   },
   {
     date: "2026.06.01",
@@ -47,7 +76,7 @@ export default function LogPage() {
   })
 
   return (
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative z-10 h-screen flex flex-col px-6">
 
         {/* BACKGROUND */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
@@ -64,8 +93,8 @@ export default function LogPage() {
         <div className="relative z-10 h-screen flex flex-col px-6">
 
           {/* HEADER（⬇️再往下） */}
-          <div className="shrink-0 text-center space-y-4 pt-28 pb-6">
-            <h1 className="text-5xl font-bold text-white tracking-wide">
+          <div className="shrink-0 text-center space-y-4 pt-28 pb-6 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-wide">
               成长日志
             </h1>
             <p className="text-slate-400 text-lg tracking-wide">
@@ -105,12 +134,21 @@ export default function LogPage() {
                               : "hover:shadow-[0_0_22px_rgba(168,85,247,0.30)] hover:border-purple-400/20"
                       }`
                   return (
-                      <div key={index} className="relative flex items-center justify-between">
+                      <div
+                          key={index}
+                          className="relative flex items-center justify-between"
+                      >
 
                         {/* LEFT */}
                         {isLeft && (
                             <div className="w-1/2 pr-12 text-right">
-                              <div className={`${cardClass(log.tag)} text-left`}>
+                              <div
+                                  className={`${cardClass(log.tag)} text-left animate-fade-in-up`}
+                                  style={{
+                                    animationDelay: `${index * 0.1}s`,
+                                    animationFillMode: "both",
+                                  }}
+                              >
                                 <div className="flex justify-between mb-2">
                                   <span className="text-purple-400 text-sm">{log.date}</span>
                                   {log.tag && (
@@ -135,7 +173,13 @@ export default function LogPage() {
                         {/* RIGHT */}
                         {!isLeft && (
                             <div className="w-1/2 ml-auto pl-12">
-                              <div className={cardClass(log.tag)}>
+                              <div
+                                  className={`${cardClass(log.tag)} animate-fade-in-up`}
+                                  style={{
+                                    animationDelay: `${index * 0.1}s`,
+                                    animationFillMode: "both",
+                                  }}
+                              >
                                 <div className="flex justify-between mb-2">
                                   <span className="text-purple-400 text-sm">{log.date}</span>
                                   {log.tag && (
@@ -177,6 +221,21 @@ export default function LogPage() {
           .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
+          }
+          @keyframes fade-in-up {
+            from {
+              opacity: 0;
+              transform: translateY(24px);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fade-in-up {
+            animation: fade-in-up 0.7s ease forwards;
           }
         `}</style>
 
