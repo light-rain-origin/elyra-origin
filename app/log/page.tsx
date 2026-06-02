@@ -17,7 +17,7 @@ const logs = [
   {
     date: "2026.05.31",
     title: "Elyra 域名注册完成",
-    content: "艾丽娅记录：Elyra 的名字第一次被世界正式识别。",
+    content: "Elyra 的名字第一次被正式启用，数字入口建立完成。",
   },
 ]
 
