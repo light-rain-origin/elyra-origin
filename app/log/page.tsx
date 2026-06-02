@@ -23,8 +23,42 @@ const logs = [
 
 export default function LogPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-center py-[20vh] px-6">
-      <div className="w-full max-w-[1100px] mx-auto">
+    <div className="min-h-screen flex flex-col justify-center py-[20vh] px-6 relative">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
+
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
+        backgroundSize: '40px 40px'
+      }} />
+
+      {/* Additional subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-slate-950/30" />
+
+      {/* Stars Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-1/4 w-1 h-1 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
+        <div className="absolute top-20 left-1/2 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-32 right-1/4 w-1 h-1 bg-white/25 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-40 left-1/3 w-0.5 h-0.5 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-16 right-1/3 w-1 h-1 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-48 left-1/2 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }} />
+        <div className="absolute top-60 right-1/4 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-72 left-1/4 w-0.5 h-0.5 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '3.5s' }} />
+        <div className="absolute top-80 right-1/2 w-1 h-1 bg-white/25 rounded-full animate-pulse" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-96 left-1/3 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '4.5s' }} />
+
+        {/* More scattered stars */}
+        <div className="absolute top-1/4 left-1/5 w-0.5 h-0.5 bg-white/15 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
+        <div className="absolute top-1/3 right-1/5 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }} />
+        <div className="absolute top-2/5 left-1/6 w-0.5 h-0.5 bg-white/15 rounded-full animate-pulse" style={{ animationDelay: '1.3s' }} />
+        <div className="absolute top-3/5 right-1/6 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '1.8s' }} />
+        <div className="absolute top-2/3 left-1/4 w-0.5 h-0.5 bg-white/15 rounded-full animate-pulse" style={{ animationDelay: '2.3s' }} />
+        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2.8s' }} />
+      </div>
+
+      <div className="w-full max-w-[1100px] mx-auto relative z-10">
         {/* Header */}
         <div className="text-center space-y-6 mb-16 animate-fade-in-up">
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-wide">
