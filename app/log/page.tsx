@@ -3,6 +3,12 @@
 const logs = [
   {
     date: "2026.06.02",
+    title: "提交 v1 版本",
+    content: "完成基础框架搭建，成长日志系统上线，艾丽娅研究记录进入持续迭代阶段。",
+    tag: "event",
+  },
+  {
+    date: "2026.06.02",
     title: "Elyra 雏形诞生",
     content: "艾丽娅记录：一个尚未完整的世界，第一次拥有了基本的形状。",
     tag: "milestone",
@@ -81,18 +87,30 @@ export default function LogPage() {
                   const isLeft = sideMap[index]
 
                   // ✨ 轻氛围卡片
-                  const cardClass =
-                      "glass-card p-6 rounded-2xl inline-block transition-all duration-300 " +
-                      "hover:-translate-y-1 hover:scale-[1.01] " +
-                      "hover:shadow-[0_0_20px_rgba(168,85,247,0.28)]"
-
+                  const cardClass = (tag: string) =>
+                      `bg-slate-900/50
+   backdrop-blur-xl
+   border
+   border-white/10
+   p-6
+   rounded-2xl
+   inline-block
+   transition-all
+   duration-300
+   hover:-translate-y-1
+   hover:scale-[1.01]
+   ${
+                          tag === "event"
+                              ? "hover:shadow-[0_0_18px_rgba(103,232,249,0.35)] hover:border-cyan-300/20"
+                              : "hover:shadow-[0_0_22px_rgba(168,85,247,0.30)] hover:border-purple-400/20"
+                      }`
                   return (
                       <div key={index} className="relative flex items-center justify-between">
 
                         {/* LEFT */}
                         {isLeft && (
                             <div className="w-1/2 pr-12 text-right">
-                              <div className={cardClass + " text-left"}>
+                              <div className={`${cardClass(log.tag)} text-left`}>
                                 <div className="flex justify-between mb-2">
                                   <span className="text-purple-400 text-sm">{log.date}</span>
                                   {log.tag && (
@@ -117,7 +135,7 @@ export default function LogPage() {
                         {/* RIGHT */}
                         {!isLeft && (
                             <div className="w-1/2 ml-auto pl-12">
-                              <div className={cardClass}>
+                              <div className={cardClass(log.tag)}>
                                 <div className="flex justify-between mb-2">
                                   <span className="text-purple-400 text-sm">{log.date}</span>
                                   {log.tag && (
