@@ -1,6 +1,11 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Brain, Palette, Archive } from "lucide-react"
 
+export const metadata = {
+  title: "研究实验室",
+  description: "Elyra研究实验室 - 探索AI实验、Agent系统、角色设计、数字世界的创新空间",
+}
+
 const modules = [
   {
     title: "研究",
