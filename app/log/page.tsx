@@ -1,4 +1,9 @@
-"use client"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "成长日志",
+  description: "Elyra成长日志 - 记录Elyra研究历程与重要时刻，见证艾丽娅和数字世界的成长",
+}
 
 const logs = [
   {
@@ -89,17 +94,17 @@ export default function LogPage() {
                   // ✨ 轻氛围卡片
                   const cardClass = (tag: string) =>
                       `bg-slate-900/50
-   backdrop-blur-xl
-   border
-   border-white/10
-   p-6
-   rounded-2xl
-   inline-block
-   transition-all
-   duration-300
-   hover:-translate-y-1
-   hover:scale-[1.01]
-   ${
+                       backdrop-blur-xl
+                       border
+                       border-white/10
+                       p-6
+                       rounded-2xl
+                       inline-block
+                       transition-all
+                       duration-300
+                       hover:-translate-y-1
+                       hover:scale-[1.01]
+                       ${
                           tag === "event"
                               ? "hover:shadow-[0_0_18px_rgba(103,232,249,0.35)] hover:border-cyan-300/20"
                               : "hover:shadow-[0_0_22px_rgba(168,85,247,0.30)] hover:border-purple-400/20"
@@ -183,33 +188,6 @@ export default function LogPage() {
           </div>
 
         </div>
-
-        {/* scrollbar hidden */}
-        <style jsx global>{`
-          .no-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-          .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-          @keyframes fade-in-up {
-            from {
-              opacity: 0;
-              transform: translateY(24px);
-            }
-
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .animate-fade-in-up {
-            animation: fade-in-up 0.7s ease forwards;
-          }
-        `}</style>
-
       </div>
   )
 }
