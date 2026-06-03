@@ -266,3 +266,12 @@
   background: rgba(124, 92, 255, 0.3);
   color: white;
 }
+/* Scrollbar hiding utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
