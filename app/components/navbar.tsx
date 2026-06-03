@@ -22,7 +22,7 @@ export function Navbar() {
   const navItems = [
     { href: "/", label: "首页" },
     { href: "/lab", label: "研究记录" },
-    { href: "/log", label: "成长日志" },
+    { href: "/log", label: "开发日志" },
   ]
 
   return (
