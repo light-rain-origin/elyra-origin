@@ -1,6 +1,11 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
+export const metadata = {
+  title: "首页",
+  description: "Elyra Research Institute 首页 - AI研究与虚拟角色实验系统，艾丽娅在此等你探索",
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen flex items-center px-6">
