@@ -7,8 +7,30 @@ import { ThemeProvider } from "./components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Elyra Research Institute",
-  description: "A digital laboratory for AI systems, agents and creative experiments.",
+  title: {
+    default: "Elyra Research Institute - AI研究与虚拟角色实验",
+    template: "%s | Elyra",
+  },
+  description: "Elyra Research Institute - 探索人工智能的边界，构建智能代理系统，创造虚拟角色，构建数字艺术空间",
+  keywords: ["AI", "人工智能", "虚拟角色", "艾丽娅", "Elyra", "研究实验室", "数字世界", "虚拟实验"],
+  authors: [{ name: "Elyra Team" }],
+  openGraph: {
+    title: "Elyra Research Institute",
+    description: "探索人工智能的边界，构建智能代理系统，创造虚拟角色，构建数字艺术空间",
+    url: "https://www.elyra.cn",
+    siteName: "Elyra Research Institute",
+    locale: "zh_CN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elyra Research Institute",
+    description: "探索人工智能的边界，构建智能代理系统，创造虚拟角色，构建数字艺术空间",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
