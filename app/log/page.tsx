@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "成长日志",
+  title: "开发日志",
   description: "Elyra成长日志 - 记录Elyra研究历程与重要时刻，见证艾丽娅和数字世界的成长",
 }
 
@@ -77,7 +77,7 @@ export default function LogPage() {
           {/* HEADER（⬇️再往下） */}
           <div className="shrink-0 text-center space-y-4 pt-28 pb-6 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-bold text-white tracking-wide">
-              成长日志
+              开发日志
             </h1>
             <p className="text-slate-400 text-lg tracking-wide">
               记录研究历程与重要时刻
